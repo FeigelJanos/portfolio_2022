@@ -20,9 +20,9 @@
                 <input type="email" name="email" id="mail-i" v-model="email">
 
                 <label for="message" id="msg-l">Message:</label>
-                <textarea name="message" id="msg-i" cols="30" rows="10" v-model="message"></textarea>
+                <textarea name="message" id="msg-i" cols="30" rows="10" v-model="message" maxlength="2000"></textarea>
 
-                <button type="submit" id="send-btn">Send</button>
+                <button type="submit" id="send-btn" :disabled="sumbitted">{{sendBtnText}}</button>
             </form>
         </div>   
 
@@ -40,23 +40,78 @@ export default {
     data(){
         return {
                 formVisible: false,
+                submitted: false,
                 email: '',
                 message: '',
                 errorMsg: '',
+                sendBtnText: 'Send',
             }
     },
     methods: {
         toggleForm(){
             this.formVisible = !this.formVisible
+
+            if(!this.formVisible && this.errorMsg.length > 0){
+                this.errorMsg = '';
+            }
         },
         async submitForm(){
             const inputsAreValid = this.validateInputs()
 
-            this.formVisible = !this.formVisible
-            console.log(inputsAreValid)
+            if(!inputsAreValid){
+                return
+            }
+
+            const response = await fetch('https://feigel-apis.com', {
+                method: 'POST',
+                credentials: 'omit',
+                cache: 'no-cache',
+                mode: 'cors',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Access-Control-Allow-Origin':'https://feigel-apis.com'
+                },
+                redirect: 'follow',
+                referrerPolicy: 'no-referrer',
+                body: JSON.stringify({ id: '0002', email: this.email, message: this.message})
+            }).catch(()=>{
+                this.errorMsg= 'The message was not delivered. Please try again later.'
+            })
+
+            console.log(response)
+            if(response.status !== 200){
+                 this.errorMsg= 'The message was not delivered. Please try again later.'
+            }
+            else{
+                this.sumbitted = true;
+                this.sendBtnText= 'Message sent'
+                this.errorMsg = '';
+                this.email= '';
+                this.message= '';
+            }
         },
         validateInputs(){
-            return true
+            if(this.email.length < 1 ){
+                this.errorMsg = "You must fill in your email."
+                return false
+            }
+
+            if(this.message.length < 1 ){
+                this.errorMsg = "You must write some message."
+                return false
+            }
+            /*eslint-disable */
+            const emailRegex = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+            /*eslint-enable */
+
+            if(emailRegex.test(this.email)){
+                this.errorMsg=''
+                return true
+            }
+
+            this.errorMsg = 'Email format is invalid.'
+            return false
+            
         }
     },
     computed: {
@@ -156,6 +211,16 @@ export default {
         border-color: #469fec;
     }
 
+    #send-btn:disabled{
+        background-color: #999999;
+        border-color: #666666;
+    }
+
+    #send-btn:disabled:hover{
+        background-color: #999999;
+        border-color: #666666;
+    }
+
     .active{
         padding-top: .5rem;
         font-size: 1.5rem;
@@ -168,6 +233,11 @@ export default {
         background-color: #39496A;
         width: 400px;
         box-shadow: 2px 4px 16px black;
+    }
+
+    #top-error{
+        grid-area: err;
+        color: red;
     }
 
     @media screen and (max-width: 415px){
@@ -203,6 +273,8 @@ export default {
         #send-btn{
             width: 140px;
         }
+
+
     }
 
 </style>
