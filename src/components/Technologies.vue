@@ -39,7 +39,7 @@ export default {
                             {
                     title: 'Databases',
                     description: 'I like to utilise both SQL and No SQL databases to optimize performance.',
-                    technologies: ["Mongo DB", "Postge SQL", "Oracle", "Elasticsearch" ]
+                    technologies: ["Mongo DB", "Postgre SQL", "Oracle", "Elasticsearch" ]
                 }
             ]
         }
