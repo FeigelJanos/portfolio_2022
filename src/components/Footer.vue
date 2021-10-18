@@ -1,6 +1,6 @@
 <template>
     <footer id="footer-bar">
-        <p>© 2021 Janos Feigel</p>
+        <p>© 2021 John Feigel</p>
     </footer>
 </template>
 

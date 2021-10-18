@@ -159,7 +159,10 @@ export default {
         font-family: 'Montserrat', sans-serif;
         font-weight: 900;
         cursor: pointer;
-        margin-bottom: .5rem;
+        margin-bottom: 1rem;
+        margin-top: .5rem;
+        margin-left: 1.5rem;
+        margin-right: 1.5rem;
     }
 
     #message-form{
@@ -167,6 +170,7 @@ export default {
         width: 350px;
         display: grid;
         gap: 1rem;
+        text-align: center;
         grid-template-areas:
                          "err err err"
                          "mail-l mail mail"
@@ -233,6 +237,7 @@ export default {
         background-color: #39496A;
         width: 400px;
         box-shadow: 2px 4px 16px black;
+        text-align: right;
     }
 
     #top-error{
