@@ -30,11 +30,11 @@
 
         </div> 
 
-        <a href="/Feigel_Janos_CV_ENG.pdf"  download class="dl-link">
+        <a href="/John_Feigel_CV_ENG.pdf"  download class="dl-link">
             <i class="fas fa-file-download"></i>
         </a>
         <div>
-            <a href="/Feigel_Janos_CV_ENG.pdf" download class="dl-link">
+            <a href="/John_Feigel_CV_ENG.pdf" download class="dl-link">
                 <p>Download my CV</p>
             </a>
         </div>
