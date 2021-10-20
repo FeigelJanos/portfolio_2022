@@ -70,6 +70,24 @@ export default {
         margin-top: 1.5rem;
         border-radius: 15px;
         padding-top: 4rem;
-                box-shadow: 2px 4px 16px black;
+        box-shadow: 2px 4px 16px black;
+    }
+
+    @media screen and (min-width: 1018px) {
+
+       #project-cards{
+            width: 1018px;
+            margin: auto;
+        }
+
+        #projects > p{
+            margin-bottom: 4rem;
+            font-size: 1.1rem;
+        }
+
+        #projects > h2{
+            font-size: 1.6rem;
+        }
+        
     }
 </style>

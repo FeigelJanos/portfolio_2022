@@ -71,8 +71,13 @@ h1, h2, h3 {
 }
 
 #hello h2{
+  font-size: 1.6rem;
   font-style: italic;
   color: #F7B801;
+}
+
+#hello h1{
+  font-size: 2.1rem;
 }
 
 #profile-pic{

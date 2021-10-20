@@ -26,7 +26,7 @@ export default {
         background-color: #39496A;
         border-radius: 15px;
         color: #fff;
-        width: 350px;
+        width: 300px;
         padding: 1.5rem;
         position: relative;
         margin-bottom: 4rem;
@@ -39,7 +39,7 @@ h3{
 
 h3::after{
     content: '';
-    width: 260px;
+    width: 210px;
     height: 2px;
     display: block;
     position: absolute;

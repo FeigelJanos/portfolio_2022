@@ -132,7 +132,7 @@ export default {
     }
 
     #direct-msg{
-        margin-top: 1.5rem;
+        margin-top: 4rem;
     }
 
     #contacts{
@@ -280,6 +280,32 @@ export default {
         }
 
 
+    }
+
+        @media screen and (min-width: 1018px) {
+
+        #contacts{
+            width: 1018px;
+            margin: auto;
+        }
+
+        #contacts a{
+            margin-top: 2rem;
+            margin-bottom: 2rem;
+        }
+
+         #contact p{
+             font-size: 1.1rem;
+         }
+
+        #contact i{
+             font-size: 1.1rem;
+         }
+
+        #contact h2{
+             font-size: 1.6rem;
+         }
+        
     }
 
 </style>

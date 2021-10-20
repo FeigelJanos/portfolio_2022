@@ -6,7 +6,7 @@
     I also like working in a team, and consider teamwork and knowledge sharing essential parts of a good work environment. </p>
 
     <p>I belive that in programming, to fully comprehend new knowledge it have to be used in practice. 
-    I wite code every day and allways have at least one work in progress project that exceeds my current abilities.</p>
+    I try to wite code every day and allways have at least one work in progress project that exceeds my current abilities.</p>
 
     <div id="technology-cards">
         <technology-card v-for="card in cards" :key="card.title" :card="card"/>
@@ -62,6 +62,24 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-around;
-        margin-top: 2rem;
+        margin-top: 4rem;
+    }
+
+    @media screen and (min-width: 1018px) {
+
+        #technologies{
+            width: 1018px;
+            margin: auto;
+        }
+
+        #technologies > p{
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        #technologies > h2{
+            font-size: 1.6rem;
+        }
+        
     }
 </style>

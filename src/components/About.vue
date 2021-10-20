@@ -2,7 +2,7 @@
     <section id="about">
         <h2>About</h2>
 
-        <p>I am an allround web developer with good knowledge of back-end techniques. 
+        <p id="intro">I am an allround web developer with good knowledge of back-end techniques. 
         I love structure and order and I also stand for quality. 
         I try my best to create great user experience
         with performant and well designed apps and websites. 
@@ -87,13 +87,13 @@ export default {
         display: flex;
         flex-wrap: wrap;
         justify-content: center;
-        margin-top: 2rem;
+        margin-top: 4rem;
     }
 
     .dl-link i{
         margin-top: 3rem;
         color: #f7b801;
-        font-size: 1.5rem;
+        font-size: 1.6rem;
     }
 
      .dl-link p{
@@ -101,6 +101,7 @@ export default {
          color: #f7b801;
          font-family: 'Montserrat', sans-serif;
          font-weight: bold;
+         font-size: 1.1rem;
      }
 
     #code-sites i{
@@ -113,5 +114,24 @@ export default {
 
     #code-sites h3{
         margin-top: 1.5rem;
+    }
+
+    @media screen and (min-width: 1018px) {
+
+        #about > #intro{
+            width: 1018px;
+            margin: auto;
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+         #about > h2{
+            font-size: 1.6rem;
+        }
+
+        #about-bar > p{
+            font-size: 1.1rem;
+        }
+        
     }
 </style>
